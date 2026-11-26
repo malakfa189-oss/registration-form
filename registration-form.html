@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>نموذج تسجيل مستخدم</title>
 </head>
 <body>
 
-    <h1>User Registration</h1>
+    <h1>تسجيل حساب جديد</h1>
 
     <form action="/register" method="POST" enctype="multipart/form-data">
 
@@ -15,21 +15,21 @@
         <!-- TODO 1: مجموعة المعلومات الشخصية -->
         <!-- ======================================= -->
         <fieldset>
-            <legend>Personal Information</legend>
+            <legend>المعلومات الشخصية (Personal Information)</legend>
 
-            <label for="fullname">Full Name:</label><br>
-            <input type="text" id="fullname" name="fullname" required minlength="3"><br><br>
+            <label for="fullname">الاسم الكامل:</label><br>
+            <input type="text" id="fullname" name="fullname" required minlength="3" placeholder="مثال: ملك فايز العسلي"><br><br>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+            <label for="email">البريد الإلكتروني:</label><br>
+            <input type="email" id="email" name="email" required placeholder="مثال: malak.fa189@gmail.com"><br><br>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required minlength="8"><br><br>
+            <label for="password">كلمة المرور:</label><br>
+            <input type="password" id="password" name="password" required minlength="8" placeholder="8 أحرف على الأقل"><br><br>
 
-            <label for="confirm-password">Confirm Password:</label><br>
-            <input type="password" id="confirm-password" name="confirm-password" required minlength="8"><br><br>
+            <label for="confirm-password">تأكيد كلمة المرور:</label><br>
+            <input type="password" id="confirm-password" name="confirm_password" required minlength="8" placeholder="أعد إدخال كلمة المرور"><br><br>
 
-            <label for="dob">Date of Birth:</label><br>
+            <label for="dob">تاريخ الميلاد:</label><br>
             <input type="date" id="dob" name="dob" required><br><br>
         </fieldset>
         <br>
@@ -38,22 +38,22 @@
         <!-- TODO 2: مجموعة معلومات التواصل -->
         <!-- ======================================= -->
         <fieldset>
-            <legend>Contact Information</legend>
+            <legend>معلومات التواصل (Contact Information)</legend>
 
-            <label for="phone">Phone:</label><br>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: 059-123-4567" placeholder="059-123-4567"><br><br>
+            <label for="phone">رقم الهاتف:</label><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="الصيغة المطلوبة: 059-988-3924" placeholder="مثال: 059-988-3924"><br><br>
 
-            <label for="address">Address:</label><br>
-            <textarea id="address" name="address" rows="3" cols="40"></textarea><br><br>
+            <label for="address">العنوان:</label><br>
+            <textarea id="address" name="address" rows="3" cols="40" placeholder="مثال: دير البلح - المنطقة الوسطى"></textarea><br><br>
 
-            <label for="city">City:</label><br>
+            <label for="city">المدينة:</label><br>
             <select id="city" name="city">
-                <option value="">-- Select City --</option>
-                <option value="Gaza">Gaza</option>
-                <option value="Khan Younis">Khan Younis</option>
-                <option value="Rafah">Rafah</option>
-                <option value="Deir al-Balah">Deir al-Balah</option>
-                <option value="Jabalia">Jabalia</option>
+                <option value="">-- اختر المدينة --</option>
+                <option value="Gaza">غزة</option>
+                <option value="Khan Younis">خانيونس</option>
+                <option value="Rafah">رفح</option>
+                <option value="Deir al-Balah" selected>دير البلح</option>
+                <option value="Jabalia">جباليا</option>
             </select><br><br>
         </fieldset>
         <br>
@@ -62,49 +62,54 @@
         <!-- TODO 3: مجموعة التفضيلات -->
         <!-- ======================================= -->
         <fieldset>
-            <legend>Preferences</legend>
+            <legend>التفضيلات (Preferences)</legend>
 
-            <p>Gender:</p>
+            <p>الجنس:</p>
             <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label><br><br>
+            <label for="male">ذكر</label>
+            <input type="radio" id="female" name="gender" value="female" checked>
+            <label for="female">أنثى</label><br><br>
 
-            <p>Interests:</p>
-            <input type="checkbox" id="coding" name="interests" value="coding">
-            <label for="coding">Coding</label><br>
+            <p>الاهتمامات:</p>
+            <input type="checkbox" id="interest-coding" name="interests" value="Coding">
+            <label for="interest-coding">البرمجة</label><br>
 
-            <input type="checkbox" id="design" name="interests" value="design">
-            <label for="design">Design</label><br>
+            <input type="checkbox" id="interest-design" name="interests" value="Design">
+            <label for="interest-design">التصميم</label><br>
 
-            <input type="checkbox" id="gaming" name="interests" value="gaming">
-            <label for="gaming">Gaming</label><br>
+            <input type="checkbox" id="interest-gaming" name="interests" value="Gaming">
+            <label for="interest-gaming">الألعاب</label><br>
 
-            <input type="checkbox" id="reading" name="interests" value="reading">
-            <label for="reading">Reading</label><br>
+            <input type="checkbox" id="interest-reading" name="interests" value="Reading">
+            <label for="interest-reading">القراءة</label><br>
 
-            <input type="checkbox" id="sports" name="interests" value="sports">
-            <label for="sports">Sports</label><br><br>
+            <input type="checkbox" id="interest-sports" name="interests" value="Sports">
+            <label for="interest-sports">الرياضة</label><br><br>
 
-            <label for="skill">Skill Level (1-10):</label><br>
-            <input type="range" id="skill" name="skill" min="1" max="10" value="5"><br><br>
+            <label for="skill">مستوى المهارة (من 1 إلى 10):</label><br>
+            <input type="range" id="skill" name="skill" min="1" max="10" value="7"><br><br>
         </fieldset>
         <br>
 
         <!-- ======================================= -->
         <!-- TODO 4: الصورة الشخصية -->
         <!-- ======================================= -->
-        <label for="photo">Profile Picture:</label><br>
-        <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+        <fieldset>
+            <legend>الصورة الشخصية</legend>
+
+            <label for="photo">اختر صورة شخصية:</label><br>
+            <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+        </fieldset>
+        <br>
 
         <!-- ======================================= -->
         <!-- TODO 5: الشروط والأزرار -->
         <!-- ======================================= -->
         <input type="checkbox" id="terms" name="terms" required>
-        <label for="terms">I agree to the Terms and Conditions</label><br><br>
+        <label for="terms">أوافق على الشروط والأحكام</label><br><br>
 
-        <button type="submit">Register</button>
-        <button type="reset">Clear Form</button>
+        <button type="submit">إرسال التسجيل</button>
+        <button type="reset">إعادة تعيين</button>
 
     </form>
 

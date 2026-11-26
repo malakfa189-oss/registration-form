@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استبيان تقييم المساق</title>
+</head>
+<body>
+
+    <h1>استبيان تقييم المساق</h1>
+    <p>ملاحظاتك تساعدنا في تحسين تجربة التعلّم! يرجى تعبئة هذا الاستبيان بدقة.</p>
+
+    <form action="/submit-survey" method="POST">
+
+        <!-- ======================================= -->
+        <!-- TODO 1: معلومات الطالب -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>معلومات الطالب</legend>
+
+            <label for="student-name">الاسم الكامل:</label><br>
+            <input type="text" id="student-name" name="name" value="ملك فايز العسلي" required><br><br>
+
+            <label for="student-id">الرقم الجامعي:</label><br>
+            <input type="text" id="student-id" name="student_id" value="2320233026" pattern="[0-9]{7,12}" title="الرقم الجامعي يجب أن يتكون من أرقام فقط" required><br><br>
+
+            <label for="student-email">البريد الإلكتروني:</label><br>
+            <input type="email" id="student-email" name="email" value="malak.fa189@gmail.com"><br><br>
+
+            <label for="course">المساق الدراسي:</label><br>
+            <select id="course" name="course">
+                <option value="">-- اختر المساق --</option>
+                <option value="Web Dev 1" selected>تصميم وإدارة مواقع إنترنت 1</option>
+                <option value="Discrete Math and Logic">رياضيات منفصلة ومنطق الحاسوب</option>
+                <option value="Intro to IS">مقدمة في نظم المعلومات</option>
+                <option value="Network Administration">إدارة الشبكات</option>
+            </select><br><br>
+        </fieldset>
+        <br>
+
+        <!-- ======================================= -->
+        <!-- TODO 2: تقييم المساق -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>تقييم المساق</legend>
+
+            <p>التقييم العام:</p>
+            <input type="radio" id="overall-excellent" name="overall" value="Excellent">
+            <label for="overall-excellent">ممتاز</label>
+            <input type="radio" id="overall-good" name="overall" value="Good">
+            <label for="overall-good">جيد</label>
+            <input type="radio" id="overall-average" name="overall" value="Average">
+            <label for="overall-average">متوسط</label>
+            <input type="radio" id="overall-poor" name="overall" value="Poor">
+            <label for="overall-poor">ضعيف</label>
+
+            <p>تقييم المحاضر:</p>
+            <input type="radio" id="instructor-excellent" name="instructor" value="Excellent">
+            <label for="instructor-excellent">ممتاز</label>
+            <input type="radio" id="instructor-good" name="instructor" value="Good">
+            <label for="instructor-good">جيد</label>
+            <input type="radio" id="instructor-average" name="instructor" value="Average">
+            <label for="instructor-average">متوسط</label>
+            <input type="radio" id="instructor-poor" name="instructor" value="Poor">
+            <label for="instructor-poor">ضعيف</label>
+
+            <p>جودة المحتوى:</p>
+            <input type="radio" id="content-excellent" name="content" value="Excellent">
+            <label for="content-excellent">ممتاز</label>
+            <input type="radio" id="content-good" name="content" value="Good">
+            <label for="content-good">جيد</label>
+            <input type="radio" id="content-average" name="content" value="Average">
+            <label for="content-average">متوسط</label>
+            <input type="radio" id="content-poor" name="content" value="Poor">
+            <label for="content-poor">ضعيف</label>
+
+            <p>مستوى الصعوبة:</p>
+            <label for="difficulty">سهل جدًا (1) --- صعب جدًا (5)</label><br>
+            <input type="range" id="difficulty" name="difficulty" min="1" max="5" value="3"><br><br>
+        </fieldset>
+        <br>
+
+        <!-- ======================================= -->
+        <!-- TODO 3: ملاحظاتك -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>ملاحظاتك</legend>
+
+            <label for="liked-most">ما أكثر شيء أعجبك في المساق؟</label><br>
+            <textarea id="liked-most" name="liked_most" rows="4" cols="45" required>بيعرفني على أشياء جديدة في الويب والصفحات اللي بنستعملها كل يوم وبتعلم مهارة جديدة.</textarea><br><br>
+
+            <label for="improvements">ما الذي يمكن تحسينه؟</label><br>
+            <textarea id="improvements" name="improvements" rows="4" cols="45" placeholder="شاركنا مقترحاتك لتطوير المحتوى أو التطبيق العملي..."></textarea><br><br>
+
+            <p>هل تنصح غيرك بهذا المساق؟</p>
+            <input type="radio" id="rec-yes" name="recommend" value="Yes">
+            <label for="rec-yes">نعم</label>
+            <input type="radio" id="rec-no" name="recommend" value="No">
+            <label for="rec-no">لا</label>
+            <input type="radio" id="rec-maybe" name="recommend" value="Maybe">
+            <label for="rec-maybe">ربما</label><br><br>
+        </fieldset>
+        <br>
+
+        <!-- ======================================= -->
+        <!-- TODO 4: الموعد المفضل -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>الموعد المفضل</legend>
+
+            <label for="preferred-time">وقت المحاضرة المفضل:</label><br>
+            <select id="preferred-time" name="preferred_time">
+                <option value="">-- اختر الوقت --</option>
+                <option value="Morning">صباحًا</option>
+                <option value="Afternoon">ظهرًا</option>
+                <option value="Evening">مساءً</option>
+            </select><br><br>
+
+            <p>الأيام المفضلة:</p>
+            <input type="checkbox" id="day-sun" name="preferred_days" value="Sunday">
+            <label for="day-sun">الأحد</label><br>
+
+            <input type="checkbox" id="day-mon" name="preferred_days" value="Monday">
+            <label for="day-mon">الإثنين</label><br>
+
+            <input type="checkbox" id="day-tue" name="preferred_days" value="Tuesday">
+            <label for="day-tue">الثلاثاء</label><br>
+
+            <input type="checkbox" id="day-wed" name="preferred_days" value="Wednesday">
+            <label for="day-wed">الأربعاء</label><br>
+
+            <input type="checkbox" id="day-thu" name="preferred_days" value="Thursday">
+            <label for="day-thu">الخميس</label><br><br>
+        </fieldset>
+        <br>
+
+        <!-- ======================================= -->
+        <!-- TODO 5: زرا الإرسال وإعادة التعيين -->
+        <!-- ======================================= -->
+        <button type="submit">إرسال الاستبيان</button>
+        <button type="reset">مسح النموذج</button>
+
+    </form>
+
+</body>
+</html>
